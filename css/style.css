@@ -14,6 +14,20 @@ body {
 
 /* Header Syles */
 
+.logo{
+    height: 90px;
+}
+
+
+
+.bg-papel-bottom{
+    height: 120px;
+    background-image: url('../imagens/bg-rasgado-branco-bottom.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position:  0% 50px;
+}
+
 /* Barra de Pesquisa */
 .searchbar {
     margin-bottom: auto;
