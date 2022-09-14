@@ -30,6 +30,30 @@ const getEstados = () => {
   fetch(api).then(resposta => resposta.json()).then(json => {
     let options = '<option>Selecione</option>'
 
+    // Percorre o JSON pelos estados do brasil
+    for (const index in json) {
+      //console.log(json[index].nome)
+      options += `<option value =${json[index].sigla}>${json[index].nome}</option>`
+    }
+
+    select.innerHTML = options
+  })
+
+}
+// preenche a aba de cidade mediante a uf escolhida 
+const getCidadesByUf = (uf) =>{
+  let api = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`
+  let select = document.getElementById('cidade')
+
+  fetch(api).then(resposta => resposta.json()).then(json =>{
+    let options = '<option>Selecione</option>'
+
+    for (const index in json) {
+      
+      options += `<option value=${json[index].sigla}>${json[index].nome}</option>`
+        
+      
+    }
     select.innerHTML = options
   })
 
@@ -37,18 +61,31 @@ const getEstados = () => {
 
 
 
+// Exemplo laço FOR
 
+/* var meses = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+var texto = ''
 
+for (let index = 0; index < meses.length; index++) {
+  const element = meses[index];
+  texto += element + '<br>'
+
+  document.getElementById('explorar').innerHTML = texto
+}
+ */
 
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-// Function de execução autómatica
+// *****Function de execução autómatica*****
+
 // aviso('Tenha um bom dia DAVE')
 
 // document.getElementById('nome').addEventListener('click', function(){
 //     aviso(ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh);
-// }
-// )
+// })
+
+
+
 getEstados()
 
 mostraIdade()
@@ -83,3 +120,9 @@ AOS.init();
     }, false)
   })
 })()
+
+
+document.getElementById('estado').addEventListener('change',function(){
+  // this representa o objeto que dispara o valor
+  getCidadesByUf(this.value)
+})
