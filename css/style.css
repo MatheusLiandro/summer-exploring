@@ -119,6 +119,29 @@ body {
     background-position: 0 -88px, 0 110%;
 }
 
+
+.seta{
+    font-size: 35px;
+    color: #fff;
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #c3bfbc;
+    transition: background-color 1s;
+
+}
+.seta:hover{
+    color: #fff;
+    background-color: #e2a355;
+    
+}
+
+
 .flip-x{
     transform: scaleX(-1);
 }
@@ -170,6 +193,7 @@ body {
     }
   }
   
+ 
 
 
 /* /////////  CELULAR E TABLETS //////////// */
