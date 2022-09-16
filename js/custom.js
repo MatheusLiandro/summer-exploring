@@ -141,4 +141,4 @@ document.getElementById('estado').addEventListener('change', function () {
 
 // window.addEventListener('scroll',rolagem)
 
-window.onscroll = ()=> rolagem()
+window.onscroll = ()=> rolagem() // evento somente para elementos que existem no HTML
